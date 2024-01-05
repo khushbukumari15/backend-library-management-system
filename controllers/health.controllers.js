@@ -4,4 +4,4 @@ const get = function (req, res){
     res.send(healthService.get())
 }
 
-module.exports = {get}
+module.exports = {get} 
