@@ -7,8 +7,8 @@ const addingBook = async function (newBook) {
     try{
         const dbCall = await dbModel.dbConnection()
         const collection = dbCall.collection(dbConst.booksCollection)
-
         const result = await collection.insertOne(newBook)
+        console.log(result)
         return resConst.addingBookSuccess
 
     }
@@ -17,7 +17,7 @@ const addingBook = async function (newBook) {
         return resConst.internalServerError
       }
     finally{
-        await client.close();
+        // await client.close();
     }
 }
 

@@ -8,7 +8,7 @@ const resConstants = {
 
     addingBookSuccess: {
         "message": "you have added new book successfully.",
-        "status": True,
+        "status": true,
         "statusCode":200
 
     },
@@ -20,4 +20,4 @@ const resConstants = {
     },
 }
 
-module.exports = {resConstants}
+module.exports = resConstants
