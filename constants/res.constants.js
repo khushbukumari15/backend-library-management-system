@@ -18,6 +18,12 @@ const resConstants = {
         "status": false,
         "statusCode":500
     },
+
+    missingDocument:{
+        message: "No document exist",
+        "status": false,
+        "statusCode":204
+    }
 }
 
 module.exports = resConstants

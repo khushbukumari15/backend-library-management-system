@@ -1,4 +1,4 @@
-const booksmodel = require("../models/books.model")
+const booksModel = require("../models/books.model")
 const resConst = require("../constants/res.constants")
 
 const addingBookValidations = function (bookdata){
@@ -6,7 +6,15 @@ const addingBookValidations = function (bookdata){
         return resConst.missingFieldValidationError
     }
 
-    return booksmodel.addingBook(bookdata)
-} 
+    return booksModel.addingBook(bookdata)
+}
 
-module.exports = {addingBookValidations}
+const getAllBooksValidations = function (){
+    return booksModel.listAllBooks()   
+}
+
+
+module.exports = {
+    addingBookValidations,
+    getAllBooksValidations,
+}

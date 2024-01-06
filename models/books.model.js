@@ -21,6 +21,33 @@ const addingBook = async function (newBook) {
     }
 }
 
+const listAllBooks = async function () {
+    try{
+        const dbCall = await dbModel.dbConnection()
+        const collection = dbCall.collection(dbConst.booksCollection)
+        const query = {}
+        const allBooks = collection.find(query)
+        
+        if ((await collection.countDocuments(query))===0){
+            return resConst.missingDocument
+        }
+        
+        const booksArray = []
+        for await(const doc of allBooks){
+            booksArray.push(doc)
+        }
+        return booksArray
+    }
+    catch (error) {
+        console.error("registration error: ", error);
+        return resConst.internalServerError
+      }
+    finally{
+        // await client.close();
+    }
+}
+
 module.exports = {
-    addingBook
+    addingBook,
+    listAllBooks
 }

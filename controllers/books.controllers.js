@@ -6,6 +6,13 @@ const addingBookData = async function (req, res){
     res.send(addbook)
 }
 
+const allBooks = async function(req, res){
+    const getbooks = await booksService.getAllBooksValidations()
+    res.send(getbooks )
+
+}
+
 module.exports = {
-    addingBookData
+    addingBookData,
+    allBooks
 }
