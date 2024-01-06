@@ -13,8 +13,14 @@ const getAllBooksValidations = function (){
     return booksModel.listAllBooks()   
 }
 
+const deleteBookValidation = function(id){
+    return booksModel.deleteBook(id)
+}
+
+
 
 module.exports = {
     addingBookValidations,
     getAllBooksValidations,
+    deleteBookValidation,
 }

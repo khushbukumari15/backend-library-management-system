@@ -12,7 +12,14 @@ const allBooks = async function(req, res){
 
 }
 
+const bookDelete = async function(req, res){
+    const findId = req.params.id
+    const deleteCall = await booksService.deleteBookValidation(findId)
+    res.send(deleteCall)
+}
+
 module.exports = {
     addingBookData,
-    allBooks
+    allBooks,
+    bookDelete,
 }

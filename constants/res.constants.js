@@ -10,7 +10,6 @@ const resConstants = {
         "message": "you have added new book successfully.",
         "status": true,
         "statusCode":200
-
     },
 
     internalServerError: {
@@ -20,10 +19,15 @@ const resConstants = {
     },
 
     missingDocument:{
-        message: "No document exist",
+        message: "No documents matched the query",
         "status": false,
         "statusCode":204
-    }
+    },
+    deleteSuccess: {
+        "message": "you have deleted doc successfully.",
+        "status": true,
+        "statusCode":200
+    },
 }
 
 module.exports = resConstants
