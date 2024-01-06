@@ -24,7 +24,13 @@ const resConstants = {
         "statusCode":204
     },
     deleteSuccess: {
-        "message": "you have deleted doc successfully.",
+        "message": "you have deleted book successfully.",
+        "status": true,
+        "statusCode":200
+    },
+
+    updateSuccess: {
+        "message": "you have updated book successfully.",
         "status": true,
         "statusCode":200
     },

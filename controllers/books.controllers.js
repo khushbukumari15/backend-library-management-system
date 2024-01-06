@@ -18,8 +18,16 @@ const bookDelete = async function(req, res){
     res.send(deleteCall)
 }
 
+const updatingBook = async function(req, res){
+    const dataToUpdate = req.body
+    console.log(dataToUpdate)
+    const update = await booksService.updateBookValidation(req.params.id ,dataToUpdate)
+    res.send(update)
+}
+
 module.exports = {
     addingBookData,
     allBooks,
     bookDelete,
+    updatingBook
 }
