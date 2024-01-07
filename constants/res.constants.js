@@ -34,6 +34,33 @@ const resConstants = {
         "status": true,
         "statusCode":200
     },
+    registrationSuccess: {
+        "message": "you have registered successfully.",
+        "status": true,
+        "statusCode":200
+    },
+    nanMobileValidation: {
+        "message":"Only digitgs(numeric values) are allowed",
+        "status": false,
+        "statusCode": 400 
+    },
+
+    mobileNumberLenghtValidation: {
+        "message":"Mobile number must be 10 digits.",
+        "status": false,
+        "statusCode": 400 
+    },
+
+    passwordValidation: {
+        "message":"password lenght should greater than 7 and less than 20.",
+        "status": false,
+        "statusCode": 400 
+    },
+    registrationExists:{
+        "message":"you have already registered.",
+        "status": false,
+        "statusCode": 409
+    }
 }
 
 module.exports = resConstants
