@@ -67,6 +67,11 @@ const resConstants = {
         "status": true,
         "statusCode":200
     },
+    issueingBookFails:{
+        message: "book or member or book availability does not exist.",
+        "status": false,
+        "statusCode":204
+    }
 }
 
 module.exports = resConstants
