@@ -11,7 +11,6 @@ const addingBook = async function (newBook) {
         const result = await collection.insertOne(newBook)
         console.log(result)
         return resConst.addingBookSuccess
-
     }
     catch (error) {
         console.error("radding new book error: ", error);

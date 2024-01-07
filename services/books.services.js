@@ -18,7 +18,7 @@ const deleteBookValidation = function(id){
 }
 
 const updateBookValidation = function(id, query){
-    if(!query.bookId && !query.bookName && !query.price && !query.genre){
+    if(!query.bookId && !query.bookName && !query.price && !query.genre && !query.status){
         return resConst.missingFieldValidationError
     }
     return booksModel.modifyBookDetails(id, query)
