@@ -60,7 +60,13 @@ const resConstants = {
         "message":"you have already registered.",
         "status": false,
         "statusCode": 409
-    }
+    },
+
+    issueingBookSuccess: {
+        "message": "you have issued a book successfully.",
+        "status": true,
+        "statusCode":200
+    },
 }
 
 module.exports = resConstants
