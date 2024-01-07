@@ -12,7 +12,14 @@ const getAllMembers = async function(req, res){
 
 }
 
+const memberDelete = async function(req, res){
+    const findId = req.params.id
+    const deleteCall = await memberService.deleteMemberValidation(findId)
+    res.send(deleteCall)
+}
+
 module.exports = {
     registrationDetail,
-    getAllMembers
+    getAllMembers,
+    memberDelete
 }

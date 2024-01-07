@@ -25,7 +25,12 @@ const getAllMembersValidations = function (){
   return memberModel.listAllMembers()   
 }
 
+const deleteMemberValidation = function(id){
+  return memberModel.deleteMember(id)
+}
+
 module.exports = {
   registrationValidations,
   getAllMembersValidations,
+  deleteMemberValidation,
 }

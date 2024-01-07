@@ -1,3 +1,4 @@
+const { ObjectId} = require('mongodb')
 const dbModel = require('./db.model')
 const dbConst = require('../constants/db.constants')
 const resConst = require('../constants/res.constants')
@@ -49,7 +50,32 @@ const listAllMembers = async function () {
     }
 }
 
+const deleteMember = async function (id){
+    try{
+        const dbCall = await dbModel.dbConnection()
+        const collection = dbCall.collection(dbConst.membersCollectionName)
+        const query = {_id: new ObjectId(id)}
+        const result = await collection.deleteOne(query);
+
+        if (result.deletedCount === 1) {
+            console.log("Successfully deleted one document.");
+            return resConst.deleteSuccess
+          } else {
+            console.log("No documents matched the query. Deleted 0 documents.");
+            return resConst.missingDocument
+          }
+    }
+    catch(error) {
+        console.error("delete book error: ", error);
+        return resConst.internalServerError
+    }
+    finally{
+        // await client.close();
+    }
+}
+
 module.exports = {
     registration,
     listAllMembers,
+    deleteMember,
 }
