@@ -74,8 +74,36 @@ const deleteMember = async function (id){
     }
 }
 
+const editMemberDetails = async function(id, updatedQuery){
+    try{
+        const dbCall = await dbModel.dbConnection()
+        const collection = dbCall.collection(dbConst.membersCollectionName)
+        const filter = {_id: new ObjectId(id)}
+        const updateMember = {$set: updatedQuery}
+        const result = await collection.updateOne(filter, updateMember)
+
+        console.log(
+            `${result.matchedCount} document(s) matched the filter, updated ${result.modifiedCount} document(s)`,
+          );
+        
+        if(result.modifiedCount > 0) {
+            return resConst.updateSuccess
+        }
+        else{
+            return resConst.missingDocument
+        } 
+    }
+    catch(error){
+        console.error("update book error: ", error);
+        return resConst.internalServerError
+    }
+    finally{}
+
+}
+
 module.exports = {
     registration,
     listAllMembers,
     deleteMember,
+    editMemberDetails
 }

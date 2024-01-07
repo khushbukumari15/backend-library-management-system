@@ -5,7 +5,6 @@ const bodyParser = require('body-parser');
 const routes = require('./routes/health.route')
 const bookRouter = require("./routes/books.route")
 const memberRouter = require("./routes/members.route")
-// const port = 5000;
 
 app.listen(port, ()=> {
     console.log(`app is listening on ${port}`);

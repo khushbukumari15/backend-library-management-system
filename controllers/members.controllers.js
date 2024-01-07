@@ -18,8 +18,16 @@ const memberDelete = async function(req, res){
     res.send(deleteCall)
 }
 
+const updatingMember = async function(req, res){
+    const dataToUpdate = req.body
+    console.log(dataToUpdate)
+    const update = await memberService.updateMemberValidation(req.params.id ,dataToUpdate)
+    res.send(update)
+}
+
 module.exports = {
     registrationDetail,
     getAllMembers,
-    memberDelete
+    memberDelete,
+    updatingMember
 }

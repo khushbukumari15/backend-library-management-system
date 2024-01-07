@@ -5,5 +5,6 @@ const memberController = require('../controllers/members.controllers')
 router.post('/registration',memberController.registrationDetail)
 router.get('/members', memberController.getAllMembers)
 router.delete('/members/:id', memberController.memberDelete)
+router.put('/members/:id', memberController.updatingMember)
 
 module.exports = router

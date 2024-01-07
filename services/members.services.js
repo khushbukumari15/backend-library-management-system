@@ -29,8 +29,16 @@ const deleteMemberValidation = function(id){
   return memberModel.deleteMember(id)
 }
 
+const updateMemberValidation = function(id, query){
+  if(!query.memberId && !query.fullName && !query.mobileNumber && !query.password){
+      return resConst.missingFieldValidationError
+  }
+  return memberModel.editMemberDetails(id, query)
+}
+
 module.exports = {
   registrationValidations,
   getAllMembersValidations,
   deleteMemberValidation,
+  updateMemberValidation
 }
