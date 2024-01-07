@@ -6,6 +6,13 @@ const registrationDetail = async function(req, res){
     res.send(registrationInfo)
 } 
 
+const getAllMembers = async function(req, res){
+    const getMembers = await memberService.getAllMembersValidations()
+    res.send(getMembers )
+
+}
+
 module.exports = {
     registrationDetail,
+    getAllMembers
 }

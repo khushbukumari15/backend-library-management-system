@@ -21,6 +21,11 @@ const registrationValidations = function (userInfo) {
   return memberModel.registration(userInfo)
 }
 
+const getAllMembersValidations = function (){
+  return memberModel.listAllMembers()   
+}
+
 module.exports = {
   registrationValidations,
+  getAllMembersValidations,
 }
