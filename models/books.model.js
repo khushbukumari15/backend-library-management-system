@@ -8,12 +8,19 @@ const addingBook = async function (newBook) {
     try{
         const dbCall = await dbModel.dbConnection()
         const collection = dbCall.collection(dbConst.booksCollection)
+        const query = {bookId: newBook.bookId}
+        const bookIdCheck = await collection.findOne(query)
+
+        if(bookIdCheck){
+            return resConst.bookIdExistance
+        }
+        newBook.status = "available"
         const result = await collection.insertOne(newBook)
         console.log(result)
         return resConst.addingBookSuccess
     }
     catch (error) {
-        console.error("radding new book error: ", error);
+        console.error("adding new book error: ", error);
         return resConst.internalServerError
       }
     finally{

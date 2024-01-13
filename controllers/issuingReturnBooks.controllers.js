@@ -8,7 +8,7 @@ const addingIssueBook = async function (req, res){
     res.send(addDetails)
 }
 
-const returnBookDelete = async function(req, res){
+const returnBookData = async function(req, res){
     const issueId = req.params.issueId
     const bookId = req.params.bookId
     console.log({issueId, bookId})
@@ -18,5 +18,5 @@ const returnBookDelete = async function(req, res){
 
 module.exports = {
     addingIssueBook,
-    returnBookDelete
+    returnBookData
 }

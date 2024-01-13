@@ -7,12 +7,12 @@ const bookRouter = require("./routes/books.route")
 const memberRouter = require("./routes/members.route")
 const issueReturnRouter = require('./routes/issuingReturnBooks.route')
 
-app.listen(port, ()=> {
-    console.log(`app is listening on ${port}`);
-})
-
 app.use(bodyParser.json())
 app.use(routes);
 app.use(bookRouter)
 app.use(memberRouter)
 app.use(issueReturnRouter)
+
+app.listen(port, ()=> {
+    console.log(`app is listening on ${port}`);
+})

@@ -69,10 +69,40 @@ const resConstants = {
     },
 
     issueingBookFails:{
-        message: "book or member or book availability does not exist.",
+        message: " book is not available(already issued).",
         "status": false,
         "statusCode":204
-    }
+    },
+    bookIdExistance:{
+        "message":"This bookId has already used.",
+        "status": false,
+        "statusCode": 409
+    },
+    memberFails:{
+        message: "member does not exist.",
+        "status": false,
+        "statusCode":204
+    },
+    bookExistance:{
+        message: "book does not exist in library.",
+        "status": false,
+        "statusCode":204
+    },
+    issueIdExistance:{
+        "message":"This issueId has already used.",
+        "status": false,
+        "statusCode": 409
+    },
+    missingIssueDocument:{
+        message: "On this issueId, No documents matched the query",
+        "status": false,
+        "statusCode":204
+    },
+    returnBookSuccess: {
+        "message": "you have returned book successfully.",
+        "status": true,
+        "statusCode":200
+    },
 }
 
 module.exports = resConstants
