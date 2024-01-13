@@ -68,10 +68,25 @@ const resConstants = {
         "statusCode":200
     },
     issueingBookFails:{
-        message: "book or member or book availability does not exist.",
+        message: " this book is not available(already issued.",
         "status": false,
         "statusCode":204
-    }
+    },
+    memberFails:{
+        message: "member does not exist.",
+        "status": false,
+        "statusCode":204
+    },
+    bookExistance:{
+        message: "book does not exist in library.",
+        "status": false,
+        "statusCode":204
+    },
+    issueIdExistance:{
+        "message":"This issueId has already used.",
+        "status": false,
+        "statusCode": 409
+    },
 }
 
 module.exports = resConstants
