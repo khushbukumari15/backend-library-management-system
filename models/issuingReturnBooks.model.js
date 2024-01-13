@@ -47,7 +47,7 @@ const newIssueBook = async function (issueBook, bId, mId) {
         return resConst.issueingBookSuccess
     }
     catch (error) {
-        console.error("radding new book error: ", error);
+        console.error("adding new book error: ", error);
         return resConst.internalServerError
     }
     finally {
@@ -88,7 +88,7 @@ const returnBook = async function (issueId, bookId) {
         return resConst.returnBookSuccess
     }
     catch (error) {
-        console.error("delete book error: ", error);
+        console.error("return book error: ", error);
         return resConst.internalServerError
     }
     finally {
