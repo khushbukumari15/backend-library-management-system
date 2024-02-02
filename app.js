@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const cors = require('cors');
 const port = 5000;
 const bodyParser = require('body-parser');
 const routes = require('./routes/health.route')
@@ -8,6 +9,7 @@ const memberRouter = require("./routes/members.route")
 const issueReturnRouter = require('./routes/issuingReturnBooks.route')
 
 app.use(bodyParser.json())
+app.use(cors())
 app.use(routes);
 app.use(bookRouter)
 app.use(memberRouter)

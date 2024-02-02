@@ -2,20 +2,16 @@ const memberModel = require('../models/members.model')
 const resConst = require('../constants/res.constants')
 
 const registrationValidations = function (userInfo) {
-  if (!userInfo.fullName || !userInfo.mobileNumber || !userInfo.password) {
+  if (!userInfo.fullName || !userInfo.mobileNumber || !userInfo.memberId) {
     return resConst.missingFieldValidationError
   }
 
-  if (isNaN(userInfo.mobileNumber)) {
+  if (isNaN(userInfo.mobileNumber) || isNaN(userInfo.memberId)) {
     return resConst.nanMobileValidation
   }
 
   if (userInfo.mobileNumber.length != 10) {
     return resConst.mobileNumberLenghtValidation
-  }
-
-  if (userInfo.password.length < 8 || userInfo.password.length > 20) {
-    return resConst.passwordValidation
   }
 
   return memberModel.registration(userInfo)
@@ -30,8 +26,18 @@ const deleteMemberValidation = function(id){
 }
 
 const updateMemberValidation = function(id, query){
-  if(!query.memberId && !query.fullName && !query.mobileNumber && !query.password){
+  if(!id){
+    return resConst.idMissing
+  }
+  if(!query.memberId || !query.fullName || !query.mobileNumber){
       return resConst.missingFieldValidationError
+  }
+  if (isNaN(query.mobileNumber) || isNaN(query.memberId)) {
+    return resConst.nanMobileValidation
+  }
+  
+  if (query.mobileNumber.length != 10) {
+    return resConst.mobileNumberLenghtValidation
   }
   return memberModel.editMemberDetails(id, query)
 }

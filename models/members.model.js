@@ -7,9 +7,13 @@ const registration = async function (memberDoc) {
     try{
         const dbCall = await dbModel.dbConnection()
         const collection = dbCall.collection(dbConst.membersCollectionName)
+        const member = await collection.findOne({ "memberId": memberDoc.memberId})
         const detail = await collection.findOne({ "mobileNumber": memberDoc.mobileNumber})
         if(detail){
             return resConst.registrationExists
+        }
+        else if(member){
+            return resConst.memberIdExistance
         }
         else{
             const register = await collection.insertOne(memberDoc) 
@@ -87,7 +91,7 @@ const editMemberDetails = async function(id, updatedQuery){
           );
         
         if(result.modifiedCount > 0) {
-            return resConst.updateSuccess
+            return resConst.memberUpdateSuccess
         }
         else{
             return resConst.missingDocument

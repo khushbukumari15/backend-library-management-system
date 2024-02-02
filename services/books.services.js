@@ -18,8 +18,11 @@ const deleteBookValidation = function(id){
 }
 
 const updateBookValidation = function(id, query){
-    if(!query.bookId && !query.bookName && !query.price && !query.genre && !query.status){
+    if( !query.bookName || !query.price || !query.genre ){
         return resConst.missingFieldValidationError
+    }
+    if(isNaN(query.price)){
+        return resConst.nanMobileValidation
     }
     return booksModel.modifyBookDetails(id, query)
 }

@@ -34,8 +34,13 @@ const resConstants = {
         "status": true,
         "statusCode":200
     },
+    memberUpdateSuccess: {
+        "message": "you have updated member successfully.",
+        "status": true,
+        "statusCode":200
+    },
     registrationSuccess: {
-        "message": "you have registered successfully.",
+        "message": "Member has added successfully.",
         "status": true,
         "statusCode":200
     },
@@ -69,7 +74,7 @@ const resConstants = {
     },
 
     issueingBookFails:{
-        message: " book is not available(already issued).",
+        "message": " book is not available(already issued).",
         "status": false,
         "statusCode":204
     },
@@ -79,12 +84,12 @@ const resConstants = {
         "statusCode": 409
     },
     memberFails:{
-        message: "member does not exist.",
+        "message": "member does not exist.",
         "status": false,
         "statusCode":204
     },
     bookExistance:{
-        message: "book does not exist in library.",
+        "message": "book does not exist in library.",
         "status": false,
         "statusCode":204
     },
@@ -94,7 +99,7 @@ const resConstants = {
         "statusCode": 409
     },
     missingIssueDocument:{
-        message: "On this issueId, No documents matched the query",
+        "message": "On this issueId, No documents matched the query",
         "status": false,
         "statusCode":204
     },
@@ -103,6 +108,22 @@ const resConstants = {
         "status": true,
         "statusCode":200
     },
+    idMissing: {
+        "message": 'Bad Request: Missing ID parameter',
+        "status": false,
+        "statusCode":400   
+    },
+    bookNotIssued: {
+        "message": 'Book not issued.',
+        "status": false,
+        "statusCode":204   
+    },
+    memberIdExistance:{
+        "message":"This memberId has already used.",
+        "status": false,
+        "statusCode": 409
+    },
+
 }
 
 module.exports = resConstants

@@ -9,6 +9,9 @@ const issueBooksValidation = function (issueingData, bId, mId){
 }
 
 const returnBookValidation = function(id, bookId){
+    if(isNaN(id) || isNaN(bookId)){
+        return resConst.nanMobileValidation
+    }
     return issueModel.returnBook(id, bookId)
 }
 

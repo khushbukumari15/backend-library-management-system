@@ -12,6 +12,7 @@ const newIssueBook = async function (issueBook, bId, mId) {
 
         const filterBook = { "bookId": parseInt(bId) }
         const filterMember = { "memberId": parseInt(mId) }
+        
         const book = await booksCollection.findOne(filterBook)
         const member = await membersCollection.findOne(filterMember)
 
@@ -72,8 +73,7 @@ const returnBook = async function (issueId, bookId) {
             return resConst.bookExistance
         }
         if (book.status !== "issued") {
-            message = "Book not issued."
-            return message
+            return resConst.bookNotIssued
         }
 
         book.status = "available"
