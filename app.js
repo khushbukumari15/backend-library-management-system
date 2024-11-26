@@ -15,6 +15,11 @@ app.use(bookRouter)
 app.use(memberRouter)
 app.use(issueReturnRouter)
 
+app.use((req, res) => {
+    console.log(req.url);
+})
+
+
 app.listen(port, ()=> {
     console.log(`app is listening on ${port}`);
 })
